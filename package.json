@@ -1,0 +1,30 @@
+{
+  "name": "cellsynt",
+  "description": "API for sending text messages through cellsynt.com",
+  "version": "0.1.0",
+  "main": "./lib/cellsynt.js",
+  "author": "Jakob Mattsson <jakob.mattsson@gmail.com> (jakobmattsson.se)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/jakobmattsson/cellsynt.git"
+  },
+  "engines": {
+    "node": ">= 0.8 < 0.12",
+    "npm": ">= 1.3 < 2"
+  },
+  "devDependencies": {
+    "jscov": "^0.5.1",
+    "mocha-term-cov-reporter": "^0.1.3",
+    "mocha": "^1.7.4",
+    "coffee-script": "^1.4.0",
+    "should": "^1.2.1"
+  },
+  "scripts": {
+    "pretest": "coffee -co lib src",
+    "prepublish": "coffee -co lib src",
+    "test": "mocha --compilers coffee:coffee-script --recursive spec",
+    "coverage": "jscov src .cov && JSCOV=.cov mocha --compilers coffee:coffee-script --recursive --reporter mocha-term-cov-reporter spec",
+    "prestart": "coffee -co lib src"
+  }
+}
